@@ -1,0 +1,27 @@
+{
+  "name": "cho_jeongyun_hw4_av_app",
+  "version": "1.0.0",
+  "description": "An audio / video app",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-sass": "^4.0.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeongyunCho/Cho_Jeongyun_HW4_AV_App.git"
+  },
+  "author": "Cho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeongyunCho/Cho_Jeongyun_HW4_AV_App/issues"
+  },
+  "homepage": "https://github.com/JeongyunCho/Cho_Jeongyun_HW4_AV_App#readme"
+}
