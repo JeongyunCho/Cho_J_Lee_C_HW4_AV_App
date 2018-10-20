@@ -32,7 +32,6 @@ I use [Github](http://github.com) for versioning.
 
 ## Authors
 
-This project is entirely built by myself.
 
 * **JeongYun Cho (Sam)** - *Developer,Designer*
 
