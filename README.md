@@ -33,7 +33,8 @@ I use [Github](http://github.com) for versioning.
 ## Authors
 
 
-* **JeongYun Cho (Sam)** - *Developer,Designer*
+* **JeongYun Cho (Sam)** - *Developer*
+* **Changseok Lee** - *Designer*
 
 
 
