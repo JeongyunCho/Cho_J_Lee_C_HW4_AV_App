@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="css/main.css">
 <!-- development version, includes helpful console warnings -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<title>Cho And Lee's AutoApp</title>
+<title>Roku App</title>
 </head>
 
 
@@ -15,11 +15,11 @@
 
     <ul>
         <li v-for="video in videodata">
-            <button v-on:click="fetchSingle" class="more-details">More Details...</button>
-            <a :href="video.vid_path" v-on:click="loadMovie">
-            <img :src="'images/' + video.vid_thumb" alt="movie poster">
+            <button :data-movie="video.videos_id" v-on:click="fetchMore" class="more-details">More Details...</button>
+            <a :href="video.videos_url" v-on:click="loadMovie">
+            <img :src="'images/' + video.videos_cover" alt="movie poster">
             </a>
-            <p>Put Genre data here</p>
+            <p>Desc</p>
         </li>
     </ul>
 
@@ -27,20 +27,17 @@
         <i>click on a poster to preview the movie</i>
     </p>
 
-    <section class="hidden-movies">
-        <h3 class="movie-title"></h3> 
-        <video src="" autoplay></video>
+    <section class="hidden-movies" :class="{'show-movie' : showDetails }">
+        <h3 class="movie-title"> {{ videotitle }}</h3>
+        <video :src="'video/' + videosource" autoplay></video>
         <div class="movie-details">
-            <p></p>
+            <p> {{ videodescription }} </p>
         </div>
-
     </section>
     <div class="up-arrow">
-
+        <span v-on:click="scrollBackUp" :class="{'show-scroller': showDetails }">^</span>
     </div>
 </main>
-
-</body>
 <script src="js/main.js"></script>
+</body>
 </html>
-
