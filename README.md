@@ -1,4 +1,4 @@
-# Cho Jeongyun HW4_AV_App
+# Cho Jeongyun Lee Changseok HW4_AV_App
 
 Building an audio / video app
 
