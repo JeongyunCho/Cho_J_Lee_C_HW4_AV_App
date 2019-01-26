@@ -1,0 +1,35 @@
+.boxModel {
+    background-color: black;
+    color: white;
+    height: 3em;
+}
+
+section {
+    margin-top: 1rem;
+}
+
+.hide 
+{
+    display: none;
+}
+
+#profTitle p span {
+    color: grey;
+    text-decoration: underline;
+    font-size: .75rem;
+}
+
+#contTitle p span {
+    color: grey;
+    text-decoration: underline;
+    font-size: .75rem;
+}
+
+#introP div {
+    border-right: 1px solid #000000;
+}
+
+#introP div:last-child {
+    border-right: none;
+}
+
