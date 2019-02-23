@@ -9,7 +9,7 @@ $dsn = 'mysql: ' . http_build_query($dbn_dsn, '', ';');
 
 //DB Credentials
 $db_user = 'root';
-$db_pass = '';
+$db_pass = 'root';
 
 //PDO = Php Data Object
 try {
