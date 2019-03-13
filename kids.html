@@ -4,15 +4,17 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="css/main.css">
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <title>Roku App</title>
 </head>
 
 
 <body>
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
 			<div class="container">
 			  <a href="index.html" id="headName" class="navbar-brand">ROKU FLASHBACK</a>
 			  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,15 +45,54 @@
 </div>
 </section>
 
-<section class="row">
-    <h2 class="hide">Image Slider</h2>
-<div class="col-lg-12">
-   <img class="img-fluid" src="images/slides_kid.png" alt="kids slides">
-</div>
-</section>
+<div id="imgSlider" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#imgSlider" data-slide-to="0" class="active"></li>
+      <li data-target="#imgSlider" data-slide-to="1"></li>
+      <li data-target="#imgSlider" data-slide-to="2"></li>
+      <li data-target="#imgSlider" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="images/kid1.png" alt="First slide">
+        <div class="carousel-caption d-md-block">
+                <h5>TOTORO - MY BEST NEIGHBOR</h5>
+                <p>Animation Zibri published this animation in 2007.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="images/kids2.png" alt="Second slide">        
+        <div class="carousel-caption d-md-block">
+                <h5>TOTORO - MY BEST NEIGHBOR</h5>
+                <p>Animation Zibri published this animation in 2007.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="images/kids3.png" alt="Third slide">
+        <div class="carousel-caption d-md-block">
+                <h5>TOTORO - MY BEST NEIGHBOR</h5>
+                <p>Animation Zibri published this animation in 2007.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="images/kids4.png" alt="Forth slide">
+        <div class="carousel-caption d-md-block">
+                <h5>TOTORO - MY BEST NEIGHBOR</h5>
+                <p>Animation Zibri published this animation in 2007.</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#imgSlider" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#imgSlider" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
 
 <main class="container">
-
 
 <div class="row" id="contTitle">
         <div class="col-sm-6 col-lg-5">
@@ -60,50 +101,112 @@
 </div>
 
 <section id="content" class="row">
-    <h2 class="hide">Contents</h2>
-        <div class ="col-md-4">
-            <img class="img-fluid" src="images/kid_img1.png" alt="action">
-        </div>
-
-        <div class ="col-md-4">
-            <img class="img-fluid" src="images/kid_img2.png" alt="fantasy">
-        </div>
-
-        <div class ="col-md-4">
-                <img class="img-fluid" src="images/kid_img3.png" alt="adventure">
-        </div>
-
-        <div class ="col-md-4">
-                <img class="img-fluid" src="images/kid_img4.png" alt="fairy tale">
-        </div>
-
-        <div class ="col-md-4">
-                <img class="img-fluid" src="images/kid_img5.png" alt="sports">
-        </div>
-
-        <div class ="col-md-4">
-                <img class="img-fluid" src="images/kid_img6.png" alt="super hero">
-        </div>
-</section>
+        <h2 class="hide">Contents</h2>
+            
+    <div class ="col-md-4">
+    
+    <div class="hovereffect">
+    <img class="img-fluid"  src="images/kid_img1.png" alt="NEWS">
+    <div class="overlay">
+    <h2>ACTION</h2>
+    <p>
+    <a href="#">SEE MORE</a>
+    </p>
+    </div>
+    </div>
+    
+    </div>
+    
+    <div class ="col-md-4">
+    
+    <div class="hovereffect">
+    <img class="img-fluid"  src="images/kid_img2.png" alt="NEWS">
+    <div class="overlay">
+    <h2>FANTASY</h2>
+    <p>
+    <a href="#">SEE MORE</a>
+    </p>
+    </div>
+    </div>
+    
+    </div>
+    
+    <div class ="col-md-4">
+    
+    <div class="hovereffect">
+    <img class="img-fluid"  src="images/kid_img3.png" alt="NEWS">
+    <div class="overlay">
+        <h2>ADVENTURE</h2>
+        <p>
+            <a href="#">SEE MORE</a>
+        </p>
+    </div>
+    </div>
+    
+    </div>
+    <div class ="col-md-4">
+    
+    <div class="hovereffect">
+    <img class="img-fluid"  src="images/kid_img4.png" alt="NEWS">
+    <div class="overlay">
+    <h2>FAIRY TALE</h2>
+    <p>
+    <a href="#">SEE MORE</a>
+    </p>
+    </div>
+    </div>
+    
+    </div>
+    
+    <div class ="col-md-4">
+    
+    <div class="hovereffect">
+    <img class="img-fluid"  src="images/kid_img5.png" alt="NEWS">
+    <div class="overlay">
+    <h2>SPORTS</h2>
+    <p>
+    <a href="#">SEE MORE</a>
+    </p>
+    </div>
+    </div>
+    
+    </div>
+    <div class ="col-md-4">
+    
+    <div class="hovereffect">
+    <img class="img-fluid"  src="images/kid_img6.png" alt="NEWS">
+    <div class="overlay">
+    <h2>SUPER HERO</h2>
+    <p>
+        <a href="#">SEE MORE</a>
+    </p>
+    </div>
+    </div>
+    
+    </div>
+    </section>
 
 </main>
 
+
 <footer>
-        <section class="container">
-        <div class="row">
-            <h2 class="hide">Footer Text</h2>
-            <div class="col-lg-3">
-                <p id="footerTitle">ROKU</p>
-            </div>
-            
-            <div class="col col-lg-9">
-                <p id="copyRight" class="text-right">© 2018 ROKU, INC. ALL RIGHTS RESERVED. ROKU, THE ROKU LOGO, ROKU TV, ROKU POWERED, "STREAMING </br> STICK," "HAPPY STREAMING" AND "NOW THIS IS TV" XARE TRADEMARKS AND/OR REGISTERED TRADEMARKS </br> OF ROKU, INC. IN THE UNITED STATES.</p>
-            </div>
-        </div>
     
-        <div class="row">
+    <section class="container">
+    <div class="row">
+        <h2 class="hide">Footer Text</h2>
+        <div class="col-lg-3 text-center">
+            <p id="footerTitle">ROKU</p>
+        </div>
+        
+        <div class="col col-lg-9">
+            <p id="copyRight">© 2018 ROKU, INC. ALL RIGHTS RESERVED. ROKU, THE ROKU LOGO, ROKU TV, ROKU POWERED, "STREAMING </br> STICK," "HAPPY STREAMING" AND "NOW THIS IS TV" XARE TRADEMARKS AND/OR REGISTERED TRADEMARKS </br> OF ROKU, INC. IN THE UNITED STATES.</p>
+        </div>
+    </div>
+
+
+    <div class="row">
             <h2 class="hide">Social Media</h2>
-            <div class="col-md-3">
+            <div class="col-md-3 offset-md-9">
                 <nav>
                 <ul>
                     <li><a href="#"><span><i class="fab fa-facebook"></i></span></a></li>
@@ -115,8 +218,10 @@
             </div>
     
         </div>
+
     </section>
-    </footer>
+
+</footer>
 
 
 
