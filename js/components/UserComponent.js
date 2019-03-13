@@ -1,27 +1,75 @@
+import HeaderComponent from "./HeaderComponent.js";
+import FooterComponent from "./FooterComponent.js";
+
 export default {
-    props: ['liveuser'],
-
     template: `
-    <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
-        <div class="card rounded" @click="navToUserHome()">
-            <div class="card-body text-center">
-                <img :src="'images/' + liveuser.avatar" class="rounded-circle img-fluid">
-                <p>{{ liveuser.username }}</p>
-            </div>
-        </div>
-    </div>`,
+<div>
+<headercomponent :navlist="navlist"></headercomponent>
 
-    created: function() {
-        if (this.liveuser.avatar == null) {
-            this.liveuser.avatar = "temp_avatar.jpg";
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-6 col-md-3 mx-auto">
+            <div class="card-rounded">
+            <img src="images/avatar.png" alt="Normal Avatar Png">
+            <h2 class="text-center"> LEE</h2>
+            <p class="editLnk text-center">Edit User Here</p>
+            </div>
+        </div>   
+        <div class="col-12 col-sm-6 col-md-3 mx-auto">
+            <div class="card-rounded">
+            <img src="images/avatar.png" alt="Normal Avatar Png">
+            <h2 class="text-center"> SAM</h2>
+            <p class="editLnk text-center">Edit User Here</p>
+            </div>
+        </div>    
+        <div class="col-12 col-sm-6 col-md-3 mx-auto">
+            <div class="card-rounded">
+            <img src="images/avatar.png" alt="Normal Avatar Png">
+            <h2 class="text-center"> CHO</h2>
+            <p class="editLnk text-center">Edit User Here</p>
+            </div>
+        </div>   
+        <div class="col-12 col-sm-6 col-md-3 mx-auto">
+            <div class="card-rounded mx-auto">
+            <img src="images/addUser.png" alt="Add User Png">
+            </div>
+        </div>     
+    </div>
+</div>
+
+<footercomponent></footercomponent>
+
+</div>
+
+
+    `,
+
+    data() {
+        return {
+          navlist:[
+            {
+              name:"home",
+              url:"main"
+            },
+            {
+              name:"parents",
+              url:"parents"
+            },
+            {
+              name:"kids",
+              url:"kids"
+            }
+          ]
         }
     },
 
+
     methods: {
-        navToUserHome() {            
-            this.$router.push({ name: "home", params: { currentuser: this.liveuser } });
-            // set a localstorage session object so that we don't have to log back in on page refresh or after our initial login
-            localStorage.setItem("cachedUser", JSON.stringify(this.liveuser)); 
-        }
+
+   
+    },
+    components: {
+      headercomponent: HeaderComponent,
+      footercomponent: FooterComponent
     }
 }

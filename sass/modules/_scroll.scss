@@ -6,10 +6,10 @@
   
   #mainScroll{
     height:100%;   
-    background:#14b5d1;
+    background: $roku-purple;
     font-size:1.3em;
     color:#333;
-    font-family:'Open Sans', sans-serif;
+
 
     header {
         float:left;
@@ -24,7 +24,7 @@
 
         h3 {
             margin:0;
-            color: #56dcee;
+            color: white;
         }
       }
 
