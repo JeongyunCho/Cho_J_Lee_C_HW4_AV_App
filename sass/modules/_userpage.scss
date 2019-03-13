@@ -1,0 +1,20 @@
+body {
+    height: 100vh;
+}
+.card-rounded {
+    background-color: $roku-purple;
+    padding: 2rem;
+    border-radius: 5%;
+    margin-top: 2rem;
+
+    img{
+        width: 100%;
+    }
+
+    h2, p {
+        margin-top: 1rem;
+        color: white;
+
+
+    }
+}
