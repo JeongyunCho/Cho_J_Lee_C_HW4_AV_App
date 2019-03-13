@@ -2,7 +2,9 @@ body {
     height: 100vh;
 }
 .card-rounded {
-    background-color: $roku-purple;
+    background-color: white;
+    box-shadow: 5px 5px 20px $roku-purple;
+    border: 4px solid $roku-purple;
     padding: 2rem;
     border-radius: 5%;
     margin-top: 2rem;
@@ -11,10 +13,9 @@ body {
         width: 100%;
     }
 
-    h2, p {
+    h2, p a{
         margin-top: 1rem;
-        color: white;
-
+        color: black;
 
     }
 }
