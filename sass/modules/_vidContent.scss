@@ -1,0 +1,36 @@
+.genList li{
+  list-style-type: none;
+  display: inline;
+
+  button{
+    border: 2px solid $roku-purple;
+    padding: .5rem 2rem .5rem 2rem;
+    background-color: white;
+    
+  }
+
+  .selected {
+    background-color: $roku-purple;
+    color: white;
+  }
+}
+
+.thumbnail {
+  
+  margin-top: 1rem;
+  box-shadow: 1px 1px 10px black;
+  img {
+    width: 100%;
+
+  }
+}
+
+@media (min-width: 1200px) {
+
+  .thumbnail {
+    margin-top: 2rem;
+
+  
+  }
+
+ }
