@@ -1,0 +1,37 @@
+footer{
+
+    background-color: #662D91;
+
+    #footerTitle {
+        font-weight: bold;
+        font-size: 2rem;
+        color: #ffffff;
+    }
+    
+    #copyRight {
+        font-size: .75rem;
+        color: #ffffff;
+        padding-top: 1em;
+        float: right;
+    }
+
+nav{
+    
+    border-bottom: none;   
+        
+     ul li{
+        list-style-type: none;
+        display: inline;
+
+                a span {
+                    color: #ffffff;
+                    font-size: 1.5rem;
+                    margin-left: 1.7rem;
+
+                }
+        }
+    
+}
+    
+
+}
