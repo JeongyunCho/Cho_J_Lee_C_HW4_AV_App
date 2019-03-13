@@ -172,7 +172,20 @@ export default {
 
     data() {
         return {
-          navlist: ["home", "parents","kids"]
+          navlist:[
+            {
+              name:"home",
+              url:"main"
+            },
+            {
+              name:"parents",
+              url:"parents"
+            },
+            {
+              name:"kids",
+              url:"kids"
+            }
+          ]
         }
     },
 

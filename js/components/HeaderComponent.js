@@ -10,7 +10,7 @@ export default {
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-link" v-for="nav in navlist">
-          <router-link :to="nav">{{ nav }}</router-link>
+          <router-link :to="nav.url">{{ nav.name }}</router-link>
         </li>
       </ul>
     </div>

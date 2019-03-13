@@ -27,7 +27,7 @@ export default {
 </div>
      `,
  
-     data() {
+     data() { 
          return {
              input: {
                  username: "",
