@@ -1,40 +1,10 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="css/main.css">
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-<title>Roku App</title>
-</head>
+import HeaderComponent from "./HeaderComponent.js";
+import FooterComponent from "./FooterComponent.js";
 
-
-<body>
-        <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-			<div class="container">
-			  <a href="index.html" id="headName" class="navbar-brand">ROKU FLASHBACK</a>
-			  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			  </button>
-			  <div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-				  <li class="nav-item">
-                    <a class="nav-link" href="index.html">HOME</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="parent.html">Parents</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="kids.html">Kids</a>
-				  </li>
-				</ul>
-			  </div>
-			</div>
-</nav>
+export default {
+    template: `
+<div>
+<headercomponent :navlist="navlist"></headercomponent>
 
 <section class="container">
     <h2 class="hide">Title</h2>
@@ -188,44 +158,39 @@
 
 </main>
 
+<footercomponent></footercomponent>
 
-<footer>
-    
-    <section class="container">
-    <div class="row">
-        <h2 class="hide">Footer Text</h2>
-        <div class="col-lg-3 text-center">
-            <p id="footerTitle">ROKU</p>
-        </div>
-        
-        <div class="col col-lg-9">
-            <p id="copyRight">© 2018 ROKU, INC. ALL RIGHTS RESERVED. ROKU, THE ROKU LOGO, ROKU TV, ROKU POWERED, "STREAMING </br> STICK," "HAPPY STREAMING" AND "NOW THIS IS TV" XARE TRADEMARKS AND/OR REGISTERED TRADEMARKS </br> OF ROKU, INC. IN THE UNITED STATES.</p>
-        </div>
-    </div>
+</div>
 
 
-    <div class="row">
-            <h2 class="hide">Social Media</h2>
-            <div class="col-md-3 offset-md-9">
-                <nav>
-                <ul>
-                    <li><a href="#"><span><i class="fab fa-facebook"></i></span></a></li>
-                    <li><a href="#"><span><i class="fab fa-instagram"></i></span></a></li>
-                    <li><a href="#"><span><i class="fab fa-youtube"></i></span></a></li>
-                    <li><a href="#"><span><i class="fab fa-twitter-square"></span></i></a></li>
-                </ul>
-                </nav>
-            </div>
-    
-        </div>
+    `,
 
-    </section>
+    data() {
+        return {
+          navlist:[
+            {
+              name:"home",
+              url:"main"
+            },
+            {
+              name:"parents",
+              url:"parents"
+            },
+            {
+              name:"kids",
+              url:"kids"
+            }
+          ]
+        }
+    },
 
-</footer>
 
+    methods: {
 
-
-
-<script src="js/main.js"></script>
-</body>
-</html>
+   
+    },
+    components: {
+      headercomponent: HeaderComponent,
+      footercomponent: FooterComponent
+    }
+}

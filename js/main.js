@@ -1,6 +1,8 @@
 
 import UsersComponent from './components/UsersComponent.js';
 import MainComponent from './components/MainComponent.js';
+import KidsComponent from './components/KidsComponent.js';
+import ParentsComponent from './components/ParentsComponent.js';
 import LoginComponent from './components/LoginComponent.js';
 import EditComponent from './components/EditComponent.js';
 import CreateComponent from './components/CreateComponent.js';
@@ -13,6 +15,8 @@ let router = new VueRouter({
       { path: '/', redirect: { name: "main"} },
       { path: '/home', redirect: { name: "main"} },
       { path: '/main', name: "main", component: MainComponent },
+      { path: '/kids', name: "kids", component: KidsComponent },
+      { path: '/parents', name: "parents", component: ParentsComponent },
       { path: '/login', name: "login", component: LoginComponent },
       { path: '/edit', name: "edit", component: EditComponent },
       { path: '/create', name: "create", component: CreateComponent },
