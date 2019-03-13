@@ -3,211 +3,45 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="css/main.css">
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 <title>Roku App</title>
+ 
 </head>
-
-
 <body>
-        <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-			<div class="container">
-			  <a id="headName" class="navbar-brand">ROKU FLASHBACK</a>
-			  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			  </button>
-			  <div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-				  <li class="nav-item">
-                    <a class="nav-link" href="home.html">HOME</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="admin/admin_login.php">Parents</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="kids.html">Kids</a>
-				  </li>
-				</ul>
-			  </div>
+  <main id="app">
+	
+		
+		<div class="toast float-right" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2500">
+			<div class="toast-header">
+				<strong class="mr-auto">App Error</strong>
+				
+				<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
 			</div>
-</nav>
+			<div class="toast-body">
+				<i class="fas fa-exclamation-triangle"></i> <span>{{ toastmessage }}</span> 
+			</div>
+		</div>
+	
+	
+	<!-- first thing in component templates should be a container -->
+	<router-view @authenticated="setAuthenticated" @autherror="popError"/>	
 
-<section class="row">
-    <h2 class="hide">Image Slider</h2>
-<div class="col-lg-12">
-    <img class="img-fluid" src="images/welcome.png" alt="Welcome Image Slides">
-</div>
-</section>
+	</main>
 
-<section class="row">
-        <h2 class="hide">Banner</h2>
-    <div class="col-lg-12">
-        <img class="img-fluid" src="images/banner.png" alt="banner" height="auto">
-    </div>
-</section>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
-<main class="container">
+	<script type="module" src="js/main.js"></script>
 
-<div class="row" id="profTitle">
-    <div class="col-sm-6 col-lg-5">
-        <p>PROFILES <span>SEE ALL VIDEOS <i class="fas fa-caret-right"></i> </span></p>
-    </div>
-</div>
-
-<section id="introP" class="row">
-    <h2 class="hide">Text Introduction</h2>
-    <div class="col-md-4">
-        <h2 class="text-center">PARENTS</h2>
-        <p class="text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-    </div>
-
-    <div class="col-md-4">
-            <h2 class="text-center">KIDS</h2>
-            <p class="text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-    </div>
-
-    <div class="col-md-4">
-            <h2 class="text-center">ALL AGES</h2>
-            <p class="text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-    </div>
-</section>
-
-<div class="row" id="contTitle">
-        <div class="col-sm-6 col-lg-5">
-            <p>CONTENTS <span>SEE ALL VIDEOS <i class="fas fa-caret-right"></i> </span></p>
-        </div>
-</div>
-
-<section id="content" class="row">
-    <h2 class="hide">Contents</h2>
-        
-<div class ="col-md-4">
-
-<div class="hovereffect">
-<img class="img-fluid"  src="images/index_img1.png" alt="NEWS">
-<div class="overlay">
-<h2>NEWS</h2>
-<p>
-<a href="#">SEE MORE</a>
-</p>
-</div>
-</div>
-
-</div>
-
-<div class ="col-md-4">
-
-<div class="hovereffect">
-<img class="img-fluid"  src="images/index_img2.png" alt="NEWS">
-<div class="overlay">
-<h2>ENTERTAINMENT</h2>
-<p>
-<a href="#">SEE MORE</a>
-</p>
-</div>
-</div>
-
-</div>
-
-<div class ="col-md-4">
-
-<div class="hovereffect">
-<img class="img-fluid"  src="images/index_img3.png" alt="NEWS">
-<div class="overlay">
-    <h2>DOCUMENTARY</h2>
-    <p>
-        <a href="#">SEE MORE</a>
-    </p>
-</div>
-</div>
-
-</div>
-<div class ="col-md-4">
-
-<div class="hovereffect">
-<img class="img-fluid"  src="images/index_img4.png" alt="NEWS">
-<div class="overlay">
-<h2>SPORTS</h2>
-<p>
-<a href="#">SEE MORE</a>
-</p>
-</div>
-</div>
-
-</div>
-
-<div class ="col-md-4">
-
-<div class="hovereffect">
-<img class="img-fluid"  src="images/index_img5.png" alt="NEWS">
-<div class="overlay">
-<h2>TRAVEL</h2>
-<p>
-<a href="#">SEE MORE</a>
-</p>
-</div>
-</div>
-
-</div>
-<div class ="col-md-4">
-
-<div class="hovereffect">
-<img class="img-fluid"  src="images/index_img6.png" alt="NEWS">
-<div class="overlay">
-<h2>TALK SHOW</h2>
-<p>
-    <a href="#">SEE MORE</a>
-</p>
-</div>
-</div>
-
-</div>
-</section>
-
-</main>
-
-<footer>
-    
-    <section class="container">
-    <div class="row">
-        <h2 class="hide">Footer Text</h2>
-        <div class="col-lg-3 text-center">
-            <p id="footerTitle">ROKU</p>
-        </div>
-        
-        <div class="col col-lg-9">
-            <p id="copyRight">© 2018 ROKU, INC. ALL RIGHTS RESERVED. ROKU, THE ROKU LOGO, ROKU TV, ROKU POWERED, "STREAMING </br> STICK," "HAPPY STREAMING" AND "NOW THIS IS TV" XARE TRADEMARKS AND/OR REGISTERED TRADEMARKS </br> OF ROKU, INC. IN THE UNITED STATES.</p>
-        </div>
-    </div>
-
-
-    <div class="row">
-            <h2 class="hide">Social Media</h2>
-            <div class="col-md-3 offset-md-9">
-                <nav>
-                <ul>
-                    <li><a href="#"><span><i class="fab fa-facebook"></i></span></a></li>
-                    <li><a href="#"><span><i class="fab fa-instagram"></i></span></a></li>
-                    <li><a href="#"><span><i class="fab fa-youtube"></i></span></a></li>
-                    <li><a href="#"><span><i class="fab fa-twitter-square"></span></i></a></li>
-                </ul>
-                </nav>
-            </div>
-    
-        </div>
-
-    </section>
-
-</footer>
-
-
-
-
-<script src="js/main.js"></script>
+	<script>
+		$('.toast').toast();
+	</script>
 </body>
 </html>

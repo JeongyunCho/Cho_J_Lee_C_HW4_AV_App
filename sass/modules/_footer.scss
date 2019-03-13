@@ -18,6 +18,7 @@ footer{
 nav{
     
     border-bottom: none;   
+    text-align: center;
         
      ul li{
         list-style-type: none;
@@ -26,12 +27,29 @@ nav{
                 a span {
                     color: #ffffff;
                     font-size: 1.5rem;
-                    margin-left: 1.7rem;
+                    
 
                 }
         }
     
 }
+
+@media (min-width: 1200px) {
+
+nav{
+    text-align: none;
+    
+    ul li a span {
+        margin-left: 2.25rem;
+    }
+}
+
+
+
+
+
+
+ }
     
 
 }
