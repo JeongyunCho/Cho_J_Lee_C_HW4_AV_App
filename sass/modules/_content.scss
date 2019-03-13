@@ -13,6 +13,7 @@ section {
     display: none;
 }
 
+
 #profTitle p, #contTitle p {
     font-size: 1.5rem;
 }
@@ -23,10 +24,17 @@ section {
     font-size: .75rem;
 }
 
-#introP div {
-    border-right: 1px solid #000000;
-}
 
 #introP div:last-child {
     border-right: none;
 }
+
+// Media Query for mobile 
+@media (min-width: 768px) {
+
+
+    #introP div {
+        border-right: 1px solid #000000;
+    }
+
+ }
