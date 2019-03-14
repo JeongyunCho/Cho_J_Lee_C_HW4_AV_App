@@ -50,7 +50,7 @@ require_once('connect.php');
       while ($user_info = $user_info_check->fetch(PDO::FETCH_ASSOC)) {
         $user = array();
 
-        $user['id'] = $found_user['user_id'];
+        $user['user_id'] = $found_user['user_id'];
         $user['username'] = $found_user['user_name'];
         $user['user_agedays'] =$user_info['user_agedays'];
       }

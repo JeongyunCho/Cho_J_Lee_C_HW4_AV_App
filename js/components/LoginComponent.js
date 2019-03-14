@@ -86,7 +86,7 @@ export default {
                         this.$emit("adultauthenticated", true);
                         }
                         this.$emit("authenticated", true,data[0]);
-                        
+                  
                         this.$router.replace({ name: "userlists" });
                     }
                 })

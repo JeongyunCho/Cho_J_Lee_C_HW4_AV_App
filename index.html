@@ -25,7 +25,8 @@
 			<ul class="navbar-nav ml-auto">
 			  <li class="nav-link" v-for="nav in navlist">
 				<router-link :to="nav.url">{{ nav.name }}</router-link>
-			  </li>
+				</li>
+				<li class="nav-link" v-if="authenticated"><router-link :to="{ name: 'userlists'}">Users</router-link></li>
 			  <li class="nav-link" v-if="authenticated" v-on:click="logout()">logout</li>
 			  <li class="nav-link" v-else> <router-link :to="{ name: 'login'}">login</router-link></li>				
 			</ul>

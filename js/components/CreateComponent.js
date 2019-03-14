@@ -8,7 +8,6 @@ export default {
     <h3>WELCOME!!</h3>
     
     <div class="form">
-    
     <p v-if="userLoggedin" id="logTitle">ROKU CREATE SUB USER</p>
     <p v-else id="logTitle">ROKU CREATE MAIN USER</p>
      
@@ -23,7 +22,7 @@ export default {
         <input v-model="input.email" name="email" type="email" placeholder="email" />
         <label for="birth" class="hide">Date of Birth</label>
         <input v-model="input.birth" name="birth" type="date" placeholder="date of birth" />
-        <button v-if="userLoggedin" type="submit" @click.prevent="create_user(sub)">Create User</button>
+        <button v-if="userLoggedin" type="submit" @click.prevent="create_user('sub')">Create User</button>
         <button v-else type="submit" @click.prevent="create_user(null)">Create User</button>
         
     </form>

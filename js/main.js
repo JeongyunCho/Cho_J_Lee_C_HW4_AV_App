@@ -37,7 +37,7 @@ let router = new VueRouter({
           next();
         }
       }},
-      { path: '/create', name: "create", component: CreateComponent },
+      { path: '/create', name: "create", component: CreateComponent, props: true},
       { path: '/users', name: 'users', component: UsersComponent ,beforeEnter: (to, from, next) => {
         if (vm.authenticated == false) {
           next("/login");
