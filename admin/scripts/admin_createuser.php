@@ -8,15 +8,23 @@
 		$birth = trim($_POST['birth']);
         
         //Validation
-        if(empty($username) || empty($password)|| empty($fname)|| empty($email) || empty($birth)){
-            $result = 'Please fill the required fields!';
-        }else if (isset($_GET['sub'])) {
-            $tbl = "tbl_sub_user";
-            $result = createUser($tbl,$fname,$username,$password,$email,$birth);
+     
+        if (isset($_GET['sub'])) {
+            if(empty($username) || empty($birth)){
+                $result = 'Please fill the required fields!';
+            }else{
+                $c_id = $_GET['sub'];
+                $tbl = "tbl_sub_user";
+                $result = createUser($tbl,null,$username,null,null,$birth,$c_id);
+            }
+    
         }else{
-            //Create User 
+            if(empty($username) || empty($password)|| empty($fname)|| empty($email) || empty($birth)){
+                $result = 'Please fill the required fields!';
+            }else{
             $tbl = "tbl_user";
-         $result = createUser($tbl,$fname,$username,$password,$email,$birth);
+         $result = createUser($tbl,$fname,$username,$password,$email,$birth,null);
+            }
         }
     	echo json_encode($result);
 

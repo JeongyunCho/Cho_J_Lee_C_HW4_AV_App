@@ -2,11 +2,12 @@ import FooterComponent from "./FooterComponent.js";
 
 
 export default {
+    props: ['loginMessage'],
     template: `
     <div>  
     <div class="login-page">
     <h3>WELCOME!!</h3>
-    
+    <h4>{{loginMessage}}</h4>
     <div class="form">
     
     <P id="logTitle">ROKU LOGIN</P>
@@ -85,8 +86,8 @@ export default {
                         if(data.user_agedays>=6935){
                         this.$emit("adultauthenticated", true);
                         }
-                        this.$emit("authenticated", true,data[0]);
-                  
+                        this.$emit("authenticated", true, data);
+                        localStorage.setItem("currentUserID", data.user_id);
                         this.$router.replace({ name: "userlists" });
                     }
                 })

@@ -28,8 +28,14 @@ let router = new VueRouter({
           next();
         }
       } },
-      { path: '/login', name: "login", component: LoginComponent },
-      { path: '/userlists', name: "userlists", component: UserListsComponent },
+      { path: '/login', name: "login", component: LoginComponent, props: true },
+      { path: '/userlists', name: "userlists", component: UserListsComponent ,beforeEnter: (to, from, next) => {
+        if (vm.authenticated == false) {
+          next("/login");
+        } else {
+          next();
+        }
+      }},
       { path: '/edit', name: "edit", component: EditComponent ,beforeEnter: (to, from, next) => {
         if (vm.authenticated == false) {
           next("/login");
@@ -108,6 +114,7 @@ const vm = new Vue({
     setAuthenticated(status, data) {
       this.authenticated = status;
       this.user = data;
+      // console.log(data);
     },
     setadultAuthenticated(status){
       this.adultauthenticated = status;

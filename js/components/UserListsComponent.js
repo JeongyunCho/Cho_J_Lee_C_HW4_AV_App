@@ -43,7 +43,8 @@ export default {
           this.$router.push({ name: "create", params: { userLoggedin: true } });
         },
         fetchAllUsers() {
-          let url = `./admin/scripts/users.php?allusers=true`;
+          let userid = localStorage.getItem("currentUserID");
+          let url = `./admin/scripts/users.php?allusers=${userid}`;
   
           fetch(url)
             .then(res => res.json())
