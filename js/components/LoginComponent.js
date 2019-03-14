@@ -1,7 +1,10 @@
+import FooterComponent from "./FooterComponent.js";
+
+
 export default {
     template: `
-<div class="login-page">
-    
+    <div>  
+    <div class="login-page">
     <h3>WELCOME!!</h3>
     
     <div class="form">
@@ -20,6 +23,8 @@ export default {
     
     </div>
   
+    </div>
+    <footercomponent></footercomponent>
 </div>
      `,
  
@@ -29,11 +34,29 @@ export default {
                  username: "",
                  password: ""
              },
-
+             currentdate:""
+          
          }
      },
- 
+     created: function() {
+
+   
+            let today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0!
+            var yyyy = today.getFullYear();
+            if(dd<10) {
+                dd = '0'+dd
+            } 
+            if(mm<10) {
+                mm = '0'+mm
+            } 
+            today = mm + '-' + dd + '-' + yyyy;
+      this.currentdate = today;
+   
+     },
      methods: {
+       
          login() {
             //console.log(this.$parent.mockAccount.username);
  
@@ -58,8 +81,12 @@ export default {
                         console.error("authentication failed, please try again");
                         this.$emit("autherror", data);
                     } else {
-                        this.$emit("authenticated", true, data[0]);
-                        this.$router.replace({ name: "users" });
+                       
+                        if(data){
+                         console.log(data);
+                        }
+                        this.$emit("authenticated", true,data[0]);
+                        this.$router.replace({ name: "userlists" });
                     }
                 })
              .catch(function(error) { 
@@ -69,5 +96,8 @@ export default {
                  console.log("A username and password must be present");
             }
         }
-    }
+    },
+    components: {
+        footercomponent: FooterComponent
+      }
  }

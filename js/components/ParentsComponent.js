@@ -1,10 +1,8 @@
-import HeaderComponent from "./HeaderComponent.js";
 import FooterComponent from "./FooterComponent.js";
 
 export default {
     template: `
 <div>
-<headercomponent :navlist="navlist"></headercomponent>
 
 <section class="container">
     <h2 class="hide">Title</h2>
@@ -168,20 +166,6 @@ export default {
 
     data() {
         return {
-          navlist:[
-            {
-              name:"home",
-              url:"main"
-            },
-            {
-              name:"parents",
-              url:"parents"
-            },
-            {
-              name:"kids",
-              url:"kids"
-            }
-          ]
         }
     },
 
@@ -191,7 +175,6 @@ export default {
    
     },
     components: {
-      headercomponent: HeaderComponent,
       footercomponent: FooterComponent
     }
 }
