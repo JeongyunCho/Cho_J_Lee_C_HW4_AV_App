@@ -15,7 +15,6 @@ export default {
         <input v-model="input.password" type="password" placeholder="password"/>
         <button v-on:click.prevent="login()" type="submit">login</button>
         <p class="message">You Need Account? <router-link :to="{ name: 'create'}">Create User Here</router-link></p>
-
     </form>
     
     </div>

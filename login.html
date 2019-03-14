@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="css/main.css">
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -46,13 +46,11 @@
          
         <form action="login.html" class="login-form" method="post">
             <label for="username" class="hide">Username:</label>
-            <input type="text" placeholder="username"/>
+            <input v-model="input.username" type="text" placeholder="username"/>
             <label for="password" class="hide">Password</label>
-            <input type="password" placeholder="password"/>
-            <button type="submit">login</button>
-            <p class="message">You Need Account? <a href="admin_create_user.php">Create User here</a></p>
-            <p class="message">You Forgot Password? <a href="admin_edituser.php">Edit User here</a></p>
-            
+            <input v-model="input.password" type="password" placeholder="password"/>
+            <button v-on:click.prevent="login()" type="submit">login</button>
+            <p class="message">You Need Account? <router-link :to="{ name: 'create'}">Create User Here</router-link></p>
         </form>
         
         </div>
