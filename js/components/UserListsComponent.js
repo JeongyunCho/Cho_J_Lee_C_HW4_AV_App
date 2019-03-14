@@ -17,7 +17,7 @@ export default {
     <userlistcomponent v-for="(user, index) in userList" :currentUser="user" :key="index"></userlistcomponent>     
       
     <div class="col-12 col-sm-6 col-md-3 mx-auto">
-            <div class="card-rounded mx-auto">
+            <div class="card-rounded mx-auto" @click="createSubUser()">
             <img src="images/addUser.png" alt="Add User Png">
             </div>
         </div>     
@@ -39,6 +39,9 @@ export default {
       },
   
       methods: {
+        createSubUser(){
+          this.$router.push({ name: "create", params: { userLoggedin: true } });
+        },
         fetchAllUsers() {
           let url = `./admin/scripts/users.php?allusers=true`;
   

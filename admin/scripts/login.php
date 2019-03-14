@@ -46,15 +46,18 @@ require_once('connect.php');
       $update_days_query = 'UPDATE tbl_user SET user_agedays=TO_DAYS(NOW())-TO_DAYS("'.$bdate.'") WHERE user_id= '.$id;
 			$update_days_set = $pdo->query($update_days_query);
   
-		
-  
+      $user_info_check = getSingle("tbl_user", "user_id", $id);
+      while ($user_info = $user_info_check->fetch(PDO::FETCH_ASSOC)) {
+        $user = array();
 
-      $user = array();
+        $user['id'] = $found_user['user_id'];
+        $user['username'] = $found_user['user_name'];
+        $user['user_agedays'] =$user_info['user_agedays'];
+      }
 
-      $user['id'] = $found_user['user_id'];
-      $user['username'] = $found_user['user_name'];
-      $user['user_agedays'] = $found_user['user_agedays'];
-      $user['bdate'] = $found_user['user_bdate'];
+     
+   
+ 
     
       // add any other non-sensitive details here...
 

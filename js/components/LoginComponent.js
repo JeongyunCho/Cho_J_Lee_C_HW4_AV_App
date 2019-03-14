@@ -82,10 +82,11 @@ export default {
                         this.$emit("autherror", data);
                     } else {
                        
-                        if(data){
-                         console.log(data);
+                        if(data.user_agedays>=6935){
+                        this.$emit("adultauthenticated", true);
                         }
                         this.$emit("authenticated", true,data[0]);
+                        
                         this.$router.replace({ name: "userlists" });
                     }
                 })

@@ -18,8 +18,12 @@ let router = new VueRouter({
       { path: '/main', name: "main", component: MainComponent },
       { path: '/kids', name: "kids", component: KidsComponent },
       { path: '/parents', name: "parents", component: ParentsComponent,beforeEnter: (to, from, next) => {
-        if (vm.authenticated == false) {
+        if (vm.authenticated == false ) {
           next("/login");
+        }else if(vm.adultauthenticated == false){
+          vm.toastmessage = "You are NOT eligible for adult contents!!";
+          $('.toast').toast('show');
+          next("/home");
         } else {
           next();
         }
@@ -99,12 +103,15 @@ const vm = new Vue({
       // push user back to login page
       this.$router.push({ path: "/login" });
       this.authenticated = false;
+      this.adultauthenticated = false;
     },
     setAuthenticated(status, data) {
       this.authenticated = status;
       this.user = data;
     },
-   
+    setadultAuthenticated(status){
+      this.adultauthenticated = status;
+    },
 
     popError(errorMsg) {
       // set the error message string and show the toast notification

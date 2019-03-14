@@ -1,7 +1,7 @@
 import FooterComponent from "./FooterComponent.js";
 
 export default {
-    props: ['currentUser'],
+    props: ['userLoggedin'],
     template: `
     <div>
     <div class="login-page">
@@ -9,8 +9,8 @@ export default {
     
     <div class="form">
     
-    <p v-if="currentUser" id="logTitle">ROKU CREATE USER</p>
-    <p v-else id="logTitle">ROKU CREATE USER</p>
+    <p v-if="userLoggedin" id="logTitle">ROKU CREATE SUB USER</p>
+    <p v-else id="logTitle">ROKU CREATE MAIN USER</p>
      
     <form action="login.html" class="login-form" method="post">
         <label for="fname" class="hide">Firstname:</label>
@@ -23,8 +23,8 @@ export default {
         <input v-model="input.email" name="email" type="email" placeholder="email" />
         <label for="birth" class="hide">Date of Birth</label>
         <input v-model="input.birth" name="birth" type="date" placeholder="date of birth" />
-        <button type="submit" @click.prevent="create_user">Create User</button>
-       
+        <button v-if="userLoggedin" type="submit" @click.prevent="create_user(sub)">Create User</button>
+        <button v-else type="submit" @click.prevent="create_user(null)">Create User</button>
         
     </form>
     
@@ -48,7 +48,7 @@ export default {
      },
  
      methods: {
-        create_user() {
+        create_user(filter) {
             if (this.input.firstname !== "" && this.input.username !== "" && this.input.password && this.input.email !== "" && this.input.birth !== "") {
             //   do fetch call
             // add to form data
@@ -60,7 +60,7 @@ export default {
               formData.append("email", this.input.email);
               formData.append("birth", this.input.birth);
               
-              let url = `./admin/scripts/admin_createuser.php`;
+              let url = (filter == null) ? `./admin/scripts/admin_createuser.php`:`./admin/scripts/admin_createuser.php?sub`;
               fetch(url, {
                 method: "POST",
                 body: formData
