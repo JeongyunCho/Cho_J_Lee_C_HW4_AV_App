@@ -1,10 +1,8 @@
-import HeaderComponent from "./HeaderComponent.js";
 import FooterComponent from "./FooterComponent.js";
 
 export default {
     template: `
 <div>
-<headercomponent :navlist="navlist"></headercomponent>
 
 <div id="imgSlider" class="carousel slide" data-ride="carousel">
 <ol class="carousel-indicators">
@@ -172,30 +170,15 @@ export default {
 
     data() {
         return {
-          navlist:[
-            {
-              name:"home",
-              url:"main"
-            },
-            {
-              name:"parents",
-              url:"parents"
-            },
-            {
-              name:"kids",
-              url:"kids"
-            }
-          ]
+    
         }
     },
 
 
     methods: {
-
    
     },
     components: {
-      headercomponent: HeaderComponent,
       footercomponent: FooterComponent
     }
 }

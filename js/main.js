@@ -4,6 +4,7 @@ import MainComponent from './components/MainComponent.js';
 import KidsComponent from './components/KidsComponent.js';
 import ParentsComponent from './components/ParentsComponent.js';
 import LoginComponent from './components/LoginComponent.js';
+import UserListsComponent from './components/UserListsComponent.js';
 import EditComponent from './components/EditComponent.js';
 import CreateComponent from './components/CreateComponent.js';
 import AdminComponent from './components/AdminComponent.js';
@@ -16,11 +17,40 @@ let router = new VueRouter({
       { path: '/home', redirect: { name: "main"} },
       { path: '/main', name: "main", component: MainComponent },
       { path: '/kids', name: "kids", component: KidsComponent },
-      { path: '/parents', name: "parents", component: ParentsComponent },
-      { path: '/login', name: "login", component: LoginComponent },
-      { path: '/edit', name: "edit", component: EditComponent },
-      { path: '/create', name: "create", component: CreateComponent },
-      { path: '/users', name: 'users', component: UsersComponent },
+      { path: '/parents', name: "parents", component: ParentsComponent,beforeEnter: (to, from, next) => {
+        if (vm.authenticated == false ) {
+          next("/login");
+        }else if(vm.adultauthenticated == false){
+          vm.toastmessage = "You are NOT eligible for adult contents!!";
+          $('.toast').toast('show');
+          next("/home");
+        } else {
+          next();
+        }
+      } },
+      { path: '/login', name: "login", component: LoginComponent, props: true },
+      { path: '/userlists', name: "userlists", component: UserListsComponent ,beforeEnter: (to, from, next) => {
+        if (vm.authenticated == false) {
+          next("/login");
+        } else {
+          next();
+        }
+      }},
+      { path: '/edit', name: "edit", component: EditComponent ,beforeEnter: (to, from, next) => {
+        if (vm.authenticated == false) {
+          next("/login");
+        } else {
+          next();
+        }
+      }},
+      { path: '/create', name: "create", component: CreateComponent, props: true},
+      { path: '/users', name: 'users', component: UsersComponent ,beforeEnter: (to, from, next) => {
+        if (vm.authenticated == false) {
+          next("/login");
+        } else {
+          next();
+        }
+      }},
       { path: '/userhome', name: "home", component: UserHomeComponent, props: true },
       { path: '/admin', name: 'admin', component: AdminComponent }
   ]
@@ -30,21 +60,27 @@ const vm = new Vue({
  
   data: {
     authenticated: false,
-    administrator: false,
-
-    genericMessage: "hello from the parent",
-
-    mockAccount: {
-      username: "user",
-      password: "password"
-    },
-
+    adultauthenticated: false,
     user: [],
 
-    //currentUser: {},
+    toastmessage: "Login failed!",
+    navlist:[
+      {
+        name:"home",
+        url:"main"
+      },
+      {
+        name:"parents",
+        url:"parents"
+      },
+      {
+        name:"kids",
+        url:"kids"
+      }
 
-    toastmessage: "Login failed!"
+    ]
   },
+  
 
   created: function() {
     // do a session check and set authenticated to true if the session still exists
@@ -52,28 +88,19 @@ const vm = new Vue({
 
     // the localstorage session will persist until logout
 
-    // if (localStorage.getItem("cachedUser")) {
-    //   let user = JSON.parse(localStorage.getItem("cachedUser"));
-    //   this.authenticated = true;
-    //   // params not setting properly, so this route needs to be debugged a bit...
-    //   this.$router.push({ name: "home", params: { currentuser: user }});
-    // } else {
+    if (localStorage.getItem("cachedUser")) {
+      let user = JSON.parse(localStorage.getItem("cachedUser"));
+      this.authenticated = true;
+      // debugger;
+      // params not setting properly, so this route needs to be debugged a bit...
+      // this.$router.push({ name: "home", params: { currentuser: user }});
+    }
+    // else {
     //   this.$router.push({ path: "/main"} );
     // }    
   },
 
   methods: {
-    setAuthenticated(status, data) {
-      this.authenticated = status;
-      this.user = data;
-    },
-
-    popError(errorMsg) {
-      // set the error message string and show the toast notification
-      this.toastmessage = errorMsg;
-      $('.toast').toast('show');
-    },
-
     logout() {
       // delete local session
       if (localStorage.getItem("cachedUser")) {
@@ -82,20 +109,24 @@ const vm = new Vue({
       // push user back to login page
       this.$router.push({ path: "/login" });
       this.authenticated = false;
-      
-      
+      this.adultauthenticated = false;
+    },
+    setAuthenticated(status, data) {
+      this.authenticated = status;
+      this.user = data;
+      // console.log(data);
+    },
+    setadultAuthenticated(status){
+      this.adultauthenticated = status;
+    },
+
+    popError(errorMsg) {
+      // set the error message string and show the toast notification
+      this.toastmessage = errorMsg;
+      $('.toast').toast('show');
     }
   },
 
   router: router
 }).$mount("#app");
 
-// router.beforeEach((to, from, next) => {
-//   console.log('router guard fired!', to, from, vm.authenticated);
-
-//   if (vm.authenticated == false) {
-//     next("/login");
-//   } else {
-//     next();
-//   }
-// });

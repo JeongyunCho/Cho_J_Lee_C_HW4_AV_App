@@ -23,7 +23,7 @@ export default {
                   <li><a href="#"><span><i class="fab fa-facebook"></i></span></a></li>
                   <li><a href="#"><span><i class="fab fa-instagram"></i></span></a></li>
                   <li><a href="#"><span><i class="fab fa-youtube"></i></span></a></li>
-                  <li><a href="#"><span><i class="fab fa-twitter-square"></span></i></a></li>
+                  <li><a href="#"><span><i class="fab fa-twitter-square"></i></span></a></li>
               </ul>
               </nav>
           </div>

@@ -1,7 +1,9 @@
+import FooterComponent from "./FooterComponent.js";
+
 export default {
     template: `
-<div class="login-page">
-    
+    <div>
+    <div class="login-page">
     <h3>WELCOME!!</h3>
     
     <div class="form">
@@ -23,7 +25,8 @@ export default {
     </form>
     
     </div>
-  
+</div>
+<footercomponent></footercomponent>
 </div>
      `,
  
@@ -73,5 +76,8 @@ export default {
                  console.log("A username and password must be present");
             }
         }
-    }
+    },
+    components: {
+        footercomponent: FooterComponent
+      }
  }

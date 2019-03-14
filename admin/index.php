@@ -27,7 +27,7 @@
         echo json_encode($results);
 
     } else {
-// $tbl = "tbl_user";
+$tbl = "tbl_user";
         $results = getAll($tbl);
 
         echo json_encode($results);

@@ -2,9 +2,10 @@
 
     if (isset($_GET['allusers'])) {
         include('connect.php');
-
-        $query = 'SELECT * FROM tbl_user';
-
+$id = $_GET['allusers'];
+       
+        $query = 'SELECT user_name, user_id from tbl_user WHERE user_id = '.$id.' UNION SELECT b.sub_user_name, b.sub_user_id from tbl_user a, tbl_sub_user b, tbl_sub_main c WHERE a.user_id = c.user_id AND c.sub_user_id = b.sub_user_id AND a.user_id = '.$id;
+       
         $getAllUsers = $pdo->prepare($query);
         $getAllUsers->execute();
 
@@ -14,9 +15,7 @@
             $currentuser =  array();
             $currentuser['id'] = $user['user_id'];
             $currentuser['username'] = $user['user_name'];
-            $currentuser['admin'] = $user['user_admin'];
-            $currentuser['access'] = $user['user_access'];
-            // $currentuser['avatar'] = $user['user_avatar'];
+     
 
             $users[] = $currentuser;
         }

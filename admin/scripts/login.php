@@ -32,7 +32,7 @@ require_once('connect.php');
       $id = $found_user['user_id'];
       $_SESSION['user_id'] = $id;
       $_SESSION['user_name'] = $found_user['user_name'];      
-
+      $bdate = $found_user['user_bdate'];
       //Update user login IP
 			$update_ip_query = 'UPDATE tbl_user SET user_ip=:ip WHERE user_id=:id';
 			$update_ip_set = $pdo->prepare($update_ip_query);
@@ -42,14 +42,23 @@ require_once('connect.php');
 					':id'=>$id
 				)
       );
-      
-      $user = array();
 
-      $user['id'] = $found_user['user_id'];
-      $user['username'] = $found_user['user_name'];
-      $user['admin'] = $found_user['user_admin'];
-      $user['access'] = $found_user['user_access'];
+      $update_days_query = 'UPDATE tbl_user SET user_agedays=TO_DAYS(NOW())-TO_DAYS("'.$bdate.'") WHERE user_id= '.$id;
+			$update_days_set = $pdo->query($update_days_query);
+  
+      $user_info_check = getSingle("tbl_user", "user_id", $id);
+      while ($user_info = $user_info_check->fetch(PDO::FETCH_ASSOC)) {
+        $user = array();
 
+        $user['user_id'] = $found_user['user_id'];
+        $user['username'] = $found_user['user_name'];
+        $user['user_agedays'] =$user_info['user_agedays'];
+      }
+
+     
+   
+ 
+    
       // add any other non-sensitive details here...
 
       return $user;
