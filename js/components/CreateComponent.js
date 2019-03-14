@@ -10,16 +10,16 @@ export default {
      
     <form action="login.html" class="login-form" method="post">
         <label for="fname" class="hide">Firstname:</label>
-        <input type="text" placeholder="fname"/>
+        <inputv v-model="input.fname" type="text" placeholder="fname"/>
         <label for="username" class="hide">Username</label>
-        <input type="text" placeholder="username"/>
+        <input v-model="input.username" type="text" placeholder="username"/>
         <label for="password" class="hide">Password</label>
-        <input type="password" placeholder="password"/>
+        <input v-model="input.password" type="password" placeholder="password"/>
         <label for="email" class="hide">Email</label>
-        <input type="text" placeholder="email"/>
+        <input v-model="input.email" type="email" placeholder="email"/>
         <label for="birth" class="hide">Date of Birth Year</label>
-        <input type="text" placeholder="birthYear"/>
-        <button type="submit">Create User</button>
+        <input v-model="input.birth" type="text" placeholder="birthYear"/>
+        <button v-on:click.prevent="createUser()" type="submit">Create User</button>
        
         
     </form>
