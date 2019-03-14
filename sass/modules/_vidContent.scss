@@ -1,111 +1,154 @@
+
+.vidContainer {
+   
+   margin-bottom: 2rem;
+
+   .vidInfo{
+
+      padding: 1rem;
+      box-shadow: 5px 5px 20px darkgrey;
+   }
+
+}
+
+// vid list scss starts from here
 .genList li{
   list-style-type: none;
   display: inline;
 
   button{
-    border: 2px solid $roku-purple;
-    padding: .5rem 2rem .5rem 2rem;
-    background-color: white;
+
+   border: 2px solid $roku-purple;
+   padding: .5rem;
+   font-size: 1rem;
     
+  }
+
+  @media (min-width: 768px) {
+
+   button{
+      border: 2px solid $roku-purple;
+      padding: .5rem 2rem .5rem 2rem;
+      background-color: white;
+   }
+
   }
 
   .selected {
     background-color: $roku-purple;
     color: white;
+    display: none;
+
+    @media (min-width: 768px) {
+
+      display: inline;
+
+    }
+
+    
   }
 }
 
+// vidList container css 
+.vidList {
+   box-shadow: 5px 5px 20px darkgrey;
+   padding: 2rem 0 0 0;
+}
+
 // movie card css 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
-
-@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
-
-
-.col-md-5, .description {
-   padding: 0;  
-}
-
-.description {
-   font-family: 'Fredericka the Great', cursive;
-   text-align: center;
-}
-
-.card-header, .metadata {
-   background: none;
-   padding: 0;
-   position: relative;
-   border-style: none;
-}
-
-.metadata {
-   font-size: 16px;
-   i, p {
-      float: left;
+   .col-md-5, .description {
+      padding: 0;  
    }
-   p {
-      margin-top: 0;
+
+   .description {
+      font-family: 'Fredericka the Great', cursive;
+      text-align: center;
    }
-   i {
-      color: #ff9d00;
-      margin-top: 5px;
-      margin-left: 1px;
+
+
+   .card-header, .metadata {
+      background: none;
+      padding: 0;
+      position: relative;
+      border-style: none;
    }
-}
 
-.card-img {
-   -webkit-clip-path: inset(10% 0 20% 0);
-    clip-path: inset(10% 0 20% 0);
-    margin-top: -15%;
-}
-
-.card-body {
-   position: relative;
-   margin-top: -30%;
-   color: black;
-   .card-title {
-      font-weight: 600;
-      color: #414345;
+   .metadata {
+      font-size: 16px;
+      i, p {
+         float: left;
+      }
+      p {
+         margin-top: 0;
+      }
+      i {
+         color: #ff9d00;
+         margin-top: 5px;
+         margin-left: 1px;
+      }
    }
-   .card-text {
-      padding-top: 3rem;
-      margin-top: 8px;
-      font-weight: 600;
-      line-height: 30px;
+
+   .card-img {
+      -webkit-clip-path: inset(10% 0 20% 0);
+      clip-path: inset(10% 0 20% 0);
+      margin-top: -15%;
    }
-}
 
-.card, .trailer-preview {
-   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-   &:hover {
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.10), 0 8px 8px rgba(0, 0, 0, 0.18);
-   }   
-}
+   .card-body {
+      position: relative;
+      margin-top: -30%;
+      color: black;
+      .card-title {
+         font-weight: 600;
+         color: #414345;
+      }
+      .card-text {
+         padding-top: 3rem;
+         margin-top: 8px;
+         font-weight: 600;
+         line-height: 30px;
+      }
 
-.card {
-   border-radius: 8pt;
-   border-style: none;
-   overflow: hidden;
-   transform: scale(0.8);
-   margin-top: -60px;
-}
+      .trailerLnk {
+         color: black;
+         float: right;
+         top: 1rem;
+      }
+   }
 
-.trailer-preview {
-   background-color: #ff3d49;
-   position: absolute;
-   top: -46px;
-   right: 24px;
-   width: 80px;
-   height: 80px;
-   border-radius: 50%;
-   color: white;
-   font-size: 36px;
-   text-align: center;
-   padding-top: 13px;
-   &:hover, &:disabled, &:active, &:focus {
+   .card, .trailer-preview {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      &:hover {
+         box-shadow: 0 8px 18px rgba(0, 0, 0, 0.10), 0 8px 8px rgba(0, 0, 0, 0.18);
+      }   
+   }
+
+   .card {
+      border-radius: 8pt;
+      border-style: none;
+      overflow: hidden;
+      transform: scale(0.8);
+      margin-top: -60px;
+   }
+
+   .trailer-preview {
       background-color: #ff3d49;
+      position: absolute;
+      top: -46px;
+      right: 24px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
       color: white;
+      font-size: 36px;
+      text-align: center;
+      padding-top: 13px;
+      &:hover, &:disabled, &:active, &:focus {
+         background-color: #ff3d49;
+         color: white;
+      }
+      i {
+         margin-left: 5px;
+      }
    }
-   i {
-      margin-left: 5px;
-   }
-}
+
