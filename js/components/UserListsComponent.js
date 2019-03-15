@@ -48,7 +48,13 @@ export default {
   
           fetch(url)
             .then(res => res.json())
-            .then(data => {this.userList = data})
+            .then(data => {this.userList = data;
+              console.log(data);
+              // if(data.agedays>=6935){
+              //   localStorage.setItem("adultauthenticated", true);
+              // }
+          
+            })
           .catch(function(error) {
             console.error(error);
           });

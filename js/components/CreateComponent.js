@@ -93,7 +93,8 @@ export default {
                   console.log(error);
                 });
             } else {
-              console.log("Fields shouldn't be blank");
+              let warn = ("Fields shouldn't be blank");
+              this.$emit("autherror", warn);  
             }
           }
     },

@@ -3,8 +3,10 @@
         include('connect.php');
  
         if($tbl=="tbl_sub_user"){
-          $create_user_query = 'INSERT INTO '.$tbl.'(sub_user_name, sub_user_bdate)';
-          $create_user_query .= ' VALUES(:username, :birth)';
+        
+
+          $create_user_query = 'INSERT INTO '.$tbl.'(sub_user_name, sub_user_bdate, sub_user_agedays)';
+          $create_user_query .= ' VALUES(:username, :birth,TO_DAYS(NOW())-TO_DAYS("'.$birth.'"))';
           $create_user_set = $pdo->prepare($create_user_query);
           $create_user_set->execute(
             
@@ -14,8 +16,8 @@
               )
           );
         }else{
-          $create_user_query = 'INSERT INTO '.$tbl.'(user_fname, user_name,user_pass,user_email,user_bdate)';
-          $create_user_query .= ' VALUES(:fname,:username,:password,:email,:birth)';
+          $create_user_query = 'INSERT INTO '.$tbl.'(user_fname, user_name,user_pass,user_email,user_bdate, user_agedays)';
+          $create_user_query .= ' VALUES(:fname,:username,:password,:email,:birth,TO_DAYS(NOW())-TO_DAYS("'.$birth.'"))';
           $create_user_set = $pdo->prepare($create_user_query);
           $create_user_set->execute(
             
