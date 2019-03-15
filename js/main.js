@@ -8,6 +8,7 @@ import UserListsComponent from './components/UserListsComponent.js';
 import EditComponent from './components/EditComponent.js';
 import CreateComponent from './components/CreateComponent.js';
 import AdminComponent from './components/AdminComponent.js';
+import VideoHomeComponent from './components/VideoHomeComponent.js';
 import UserHomeComponent from './components/UserHomeComponent.js';
 
 let router = new VueRouter({
@@ -18,10 +19,11 @@ let router = new VueRouter({
       { path: '/main', name: "main", component: MainComponent },
       { path: '/kids', name: "kids", component: KidsComponent },
       { path: '/parents', name: "parents", component: ParentsComponent,beforeEnter: (to, from, next) => {
-        if (localStorage.getItem("authenticated")=="true") {
+
+        if (localStorage.getItem("adultauthenticated")=="true") {
           next();
         }else if(localStorage.getItem("adultauthenticated")=="false"){
-          this.toastmessage = "You are NOT eligible for adult contents!!";
+          vm.toastmessage = "You are NOT eligible for adult contents!!";
           $('.toast').toast('show');
           next("/main");
         } else {
@@ -45,13 +47,15 @@ let router = new VueRouter({
         }
       }},
       { path: '/create', name: "create", component: CreateComponent, props: true},
-      { path: '/users', name: 'users', component: UsersComponent ,beforeEnter: (to, from, next) => {
+
+      { path: '/videohome', name: "videohome", component: VideoHomeComponent, props: true ,beforeEnter: (to, from, next) => {
         if (localStorage.getItem("authenticated")=="true") {
           next();
         } else {
           next("/login");
         }
       }},
+      { path: '/users', name: 'users', component: UsersComponent},
       { path: '/userhome', name: "home", component: UserHomeComponent, props: true },
       { path: '/admin', name: 'admin', component: AdminComponent }
   ]

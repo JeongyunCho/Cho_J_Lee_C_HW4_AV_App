@@ -45,7 +45,8 @@ export default {
          }
      },
      created: function() {
-       console.log(this.userinfo); 
+
+   
        if(this.userinfo.grade=="1"){
         this.fetchCurrentUser(null);
        }else{

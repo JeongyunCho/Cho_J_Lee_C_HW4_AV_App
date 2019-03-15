@@ -78,7 +78,7 @@ export default {
     <div class="overlay">
     <h2>NEWS</h2>
     <p>
-    <a href="#">SEE MORE</a>
+       <a @click.prevent="tovideo('news')" href="#">SEE MORE</a>
     </p>
     </div>
     </div>
@@ -92,7 +92,7 @@ export default {
     <div class="overlay">
     <h2>ENTERTAINMENT</h2>
     <p>
-    <a href="#">SEE MORE</a>
+       <a @click.prevent="tovideo('entertainment')" href="#">SEE MORE</a>
     </p>
     </div>
     </div>
@@ -106,7 +106,7 @@ export default {
     <div class="overlay">
         <h2>DOCUMENTARY</h2>
         <p>
-            <a href="#">SEE MORE</a>
+               <a @click.prevent="tovideo('documentary')" href="#">SEE MORE</a>
         </p>
     </div>
     </div>
@@ -119,7 +119,7 @@ export default {
     <div class="overlay">
     <h2>SPORTS</h2>
     <p>
-    <a href="#">SEE MORE</a>
+       <a @click.prevent="tovideo('sports')" href="#">SEE MORE</a>
     </p>
     </div>
     </div>
@@ -133,7 +133,7 @@ export default {
     <div class="overlay">
     <h2>TRAVEL</h2>
     <p>
-    <a href="#">SEE MORE</a>
+    <a @click.prevent="tovideo('travel')" href="#">SEE MORE</a>
     </p>
     </div>
     </div>
@@ -146,7 +146,7 @@ export default {
     <div class="overlay">
     <h2>TALK SHOW</h2>
     <p>
-        <a href="#">SEE MORE</a>
+    <a @click.prevent="tovideo('talkshow')" href="#">SEE MORE</a>
     </p>
     </div>
     </div>
@@ -171,7 +171,9 @@ export default {
 
 
     methods: {
-
+      tovideo(event){
+        this.$router.push({ name: "videohome", params: { genre: event } });
+      }
    
     },
     components: {

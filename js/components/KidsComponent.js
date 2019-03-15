@@ -21,7 +21,7 @@ export default {
       <li data-target="#imgSlider" data-slide-to="3"></li>
     </ol>
     <div class="carousel-inner">
-      <div class="carousel-item active">
+      <div class="carousel-item active" >
         <img class="d-block w-100" src="images/kid1.png" alt="First slide">
         <div class="carousel-caption d-md-block">
                 <h5>TOTORO - MY BEST NEIGHBOR</h5>
@@ -78,7 +78,7 @@ export default {
     <div class="overlay">
     <h2>ACTION</h2>
     <p>
-    <a href="#">SEE MORE</a>
+    <a href="#" @click.prevent="tovideo('action')">SEE MORE</a>
     </p>
     </div>
     </div>
@@ -92,7 +92,7 @@ export default {
     <div class="overlay">
     <h2>FANTASY</h2>
     <p>
-    <a href="#">SEE MORE</a>
+    <a href="#" @click.prevent="tovideo('fantasy')">SEE MORE</a>
     </p>
     </div>
     </div>
@@ -102,11 +102,11 @@ export default {
     <div class ="col-md-4">
     
     <div class="hovereffect">
-    <img class="img-fluid"  src="images/kid_img3.png" alt="NEWS">
+    <img class="img-fluid" src="images/kid_img3.png" alt="NEWS">
     <div class="overlay">
         <h2>ADVENTURE</h2>
         <p>
-            <a href="#">SEE MORE</a>
+            <a href="#" @click.prevent="tovideo('adventure')">SEE MORE</a>
         </p>
     </div>
     </div>
@@ -119,7 +119,7 @@ export default {
     <div class="overlay">
     <h2>FAIRY TALE</h2>
     <p>
-    <a href="#">SEE MORE</a>
+    <a href="#" @click.prevent="tovideo('tale')">SEE MORE</a>
     </p>
     </div>
     </div>
@@ -133,7 +133,7 @@ export default {
     <div class="overlay">
     <h2>SPORTS</h2>
     <p>
-    <a href="#">SEE MORE</a>
+    <a @click.prevent="tovideo('sport')" href="#">SEE MORE</a>
     </p>
     </div>
     </div>
@@ -146,7 +146,7 @@ export default {
     <div class="overlay">
     <h2>SUPER HERO</h2>
     <p>
-        <a href="#">SEE MORE</a>
+        <a @click.prevent="tovideo('hero')" href="#">SEE MORE</a>
     </p>
     </div>
     </div>
@@ -171,7 +171,9 @@ export default {
 
 
     methods: {
-
+      tovideo(event){
+        this.$router.push({ name: "videohome", params: { genre: event } });
+      }
    
     },
     components: {
