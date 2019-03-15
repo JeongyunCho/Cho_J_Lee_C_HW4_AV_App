@@ -23,8 +23,7 @@ export default {
         <label for="birth" class="hide">Date of Birth</label>
         <input v-model="input.birth" name="birth" type="date" placeholder="date of birth" />
         <button v-if="userLoggedin" type="submit" @click.prevent="create_user('sub')">Create User</button>
-        <button v-else type="submit" @click.prevent="create_user(null)">Create User</button>
-        
+        <button v-else type="submit" @click.prevent="create_user(null)">Create User</button>    
     </form>
     
     </div>
@@ -93,7 +92,8 @@ export default {
                   console.log(error);
                 });
             } else {
-              console.log("Fields shouldn't be blank");
+              let warn = ("Fields shouldn't be blank");
+              this.$emit("autherror", warn);  
             }
           }
     },
@@ -101,3 +101,5 @@ export default {
         footercomponent: FooterComponent
       }
  }
+
+// Stylize createuser.html to vue.js
