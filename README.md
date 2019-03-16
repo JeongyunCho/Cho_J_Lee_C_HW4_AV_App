@@ -20,6 +20,7 @@ You will need
 * [Git](https://git-scm.com/)
 * [WAMP/MAMP]
 
+
 ## Getting Started
 
 git clone https://github.com/JeongyunCho/Cho_Jeongyun_HW4_AV_App.git
@@ -28,6 +29,15 @@ get roku.sql from data folder and apply it to your phpmyadmin DB.
 Fire up the website on your localhost.
 You're ready to go!
 
+## Site Features
+
+This project = video stream site is built to  with create, edit, login features built in.
+In detail, main page show navigation to other section like news, talk show and so on which can be added later.
+On navigation user can go to login to login or redirect to create user which is a main user.
+I checked if the user is adult or not with date of birth and when main user is created and logged in
+users page come up which let you to edit user or add sub user. For sub user you only need username and date of birth.
+when you click which user you are, you can now navigate to adult or kid page depends on your age.
+In video page, there are categories you can choose and watch trailers.
 
 
 ## Built With
@@ -56,4 +66,7 @@ You're ready to go!
 * awwwards (https://www.awwwards.com/)
 * previous work from graduated students
 
-/under development
+## TODO
+* improve Vue structure
+* improve DB structure
+* ~ more written in code.
