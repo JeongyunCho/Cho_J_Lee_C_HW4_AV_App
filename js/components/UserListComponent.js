@@ -23,7 +23,7 @@ export default {
                }else{
                 localStorage.setItem("adultauthenticated", false);
                }
-               console.log( localStorage.getItem("adultauthenticated"))
+               console.log( localStorage.getItem("adultauthenticated"));
             localStorage.setItem("cachedUser", JSON.stringify(this.currentUser)); 
      
         }

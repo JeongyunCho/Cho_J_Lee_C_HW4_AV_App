@@ -119,7 +119,7 @@ export default {
     <div class="overlay">
     <h2>FAIRY TALE</h2>
     <p>
-    <a href="#" @click.prevent="tovideo('tale')">SEE MORE</a>
+    <a href="#" @click.prevent="tovideo('fairy tale')">SEE MORE</a>
     </p>
     </div>
     </div>
@@ -133,7 +133,7 @@ export default {
     <div class="overlay">
     <h2>SPORTS</h2>
     <p>
-    <a @click.prevent="tovideo('sport')" href="#">SEE MORE</a>
+    <a @click.prevent="tovideo('sports')" href="#">SEE MORE</a>
     </p>
     </div>
     </div>
@@ -146,7 +146,7 @@ export default {
     <div class="overlay">
     <h2>SUPER HERO</h2>
     <p>
-        <a @click.prevent="tovideo('hero')" href="#">SEE MORE</a>
+        <a @click.prevent="tovideo('super hero')" href="#">SEE MORE</a>
     </p>
     </div>
     </div>
@@ -172,7 +172,8 @@ export default {
 
     methods: {
       tovideo(event){
-        this.$router.push({ name: "videohome", params: { genre: event } });
+        this.$router.push({ name: "videohome", params: { genre: event, age:"kid" } });
+        localStorage.setItem("videoAgeView","kid");
       }
    
     },

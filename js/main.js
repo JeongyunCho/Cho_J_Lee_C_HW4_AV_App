@@ -17,7 +17,14 @@ let router = new VueRouter({
       { path: '/', redirect: { name: "main"} },
       { path: '/home', redirect: { name: "main"} },
       { path: '/main', name: "main", component: MainComponent },
-      { path: '/kids', name: "kids", component: KidsComponent },
+      { path: '/kids', name: "kids", component: KidsComponent,beforeEnter: (to, from, next) => {
+        if (localStorage.getItem("authenticated")=="true") {
+          next();
+        } else {
+          next("/login");
+        }
+     
+      }},
       { path: '/parents', name: "parents", component: ParentsComponent,beforeEnter: (to, from, next) => {
 
         if (localStorage.getItem("adultauthenticated")=="true") {

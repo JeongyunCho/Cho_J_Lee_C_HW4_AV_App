@@ -1,10 +1,14 @@
 <?php 
 
-    function getAll($tbl){
+    function getAll($tbl,$age){
 
         include('connect.php');
-
-        $queryAll = 'SELECT * FROM '.$tbl;
+        if($age=="kid"){
+            $queryAll = 'SELECT * FROM '.$tbl.' WHERE movies_rating = "kids"';
+        }else{
+            $queryAll = 'SELECT * FROM '.$tbl;
+        }
+      
         $runAll = $pdo->query($queryAll);
 
         $result = array();       
@@ -33,16 +37,25 @@
         }
     }
 
-    function filterResults($tbl, $tbl2, $tbl3, $col, $col2, $col3, $filter) {
+    function filterResults($tbl, $tbl2, $tbl3, $col, $col2, $col3, $filter,$age) {
         include('connect.php');
         //TODO: write the SQL query to fetching everything 
         // from the linking tables $tbl, $tbl_2, $tbl_3
+        if($age=="kid"){
         $filterQuery = 'SELECT * FROM ' .$tbl.' as a, ';
         $filterQuery.= $tbl2.' as b, ';
         $filterQuery.= $tbl3.' as c ';
         $filterQuery.= 'WHERE a.' .$col.' = c.'.$col;
         $filterQuery.= ' AND b.' .$col2.' = c.'.$col2;
-        $filterQuery.= ' AND b.' .$col3.' = "'.$filter.'"';
+        $filterQuery.= ' AND b.' .$col3.' = "'.$filter.' AND movies_rating = "kids"';
+        }else{
+            $filterQuery = 'SELECT * FROM ' .$tbl.' as a, ';
+            $filterQuery.= $tbl2.' as b, ';
+            $filterQuery.= $tbl3.' as c ';
+            $filterQuery.= 'WHERE a.' .$col.' = c.'.$col;
+            $filterQuery.= ' AND b.' .$col2.' = c.'.$col2;
+            $filterQuery.= ' AND b.' .$col3.' = "'.$filter.'"';
+        }
         //echo $filterQuery; 
         //exit;
         $runQuery = $pdo->query($filterQuery);
