@@ -74,11 +74,11 @@ export default {
     <div class ="col-md-4">
     
     <div class="hovereffect">
-    <img class="img-fluid"  src="images/index_img1.png" alt="NEWS">
+    <img class="img-fluid"  src="images/action.png" alt="ACTION">
     <div class="overlay">
-    <h2>NEWS</h2>
+    <h2>ACTION</h2>
     <p>
-    <a href="#">SEE MORE</a>
+       <a @click.prevent="tovideo('action')" href="#">SEE MORE</a>
     </p>
     </div>
     </div>
@@ -88,11 +88,11 @@ export default {
     <div class ="col-md-4">
     
     <div class="hovereffect">
-    <img class="img-fluid"  src="images/index_img2.png" alt="NEWS">
+    <img class="img-fluid"  src="images/horror.png" alt="HORROR">
     <div class="overlay">
-    <h2>ENTERTAINMENT</h2>
+    <h2>HORROR</h2>
     <p>
-    <a href="#">SEE MORE</a>
+       <a @click.prevent="tovideo('horror')" href="#">SEE MORE</a>
     </p>
     </div>
     </div>
@@ -102,11 +102,11 @@ export default {
     <div class ="col-md-4">
     
     <div class="hovereffect">
-    <img class="img-fluid"  src="images/index_img3.png" alt="NEWS">
+    <img class="img-fluid"  src="images/fantasy.png" alt="FANTASY">
     <div class="overlay">
-        <h2>DOCUMENTARY</h2>
+        <h2>FANTASY</h2>
         <p>
-            <a href="#">SEE MORE</a>
+               <a @click.prevent="tovideo('fantasy')" href="#">SEE MORE</a>
         </p>
     </div>
     </div>
@@ -115,11 +115,11 @@ export default {
     <div class ="col-md-4">
     
     <div class="hovereffect">
-    <img class="img-fluid"  src="images/index_img4.png" alt="NEWS">
+    <img class="img-fluid"  src="images/adventure.png" alt="ADVENTURE">
     <div class="overlay">
-    <h2>SPORTS</h2>
+    <h2>ADVENTURE</h2>
     <p>
-    <a href="#">SEE MORE</a>
+       <a @click.prevent="tovideo('adventure')" href="#">SEE MORE</a>
     </p>
     </div>
     </div>
@@ -129,11 +129,11 @@ export default {
     <div class ="col-md-4">
     
     <div class="hovereffect">
-    <img class="img-fluid"  src="images/index_img5.png" alt="NEWS">
+    <img class="img-fluid"  src="images/family.png" alt="FAMILY">
     <div class="overlay">
-    <h2>TRAVEL</h2>
+    <h2>FAMILY</h2>
     <p>
-    <a href="#">SEE MORE</a>
+    <a @click.prevent="tovideo('family')" href="#">SEE MORE</a>
     </p>
     </div>
     </div>
@@ -142,11 +142,11 @@ export default {
     <div class ="col-md-4">
     
     <div class="hovereffect">
-    <img class="img-fluid"  src="images/index_img6.png" alt="NEWS">
+    <img class="img-fluid"  src="images/crime.png" alt="CRIME">
     <div class="overlay">
-    <h2>TALK SHOW</h2>
+    <h2>CRIME</h2>
     <p>
-        <a href="#">SEE MORE</a>
+    <a @click.prevent="tovideo('crime')" href="#">SEE MORE</a>
     </p>
     </div>
     </div>
@@ -171,7 +171,10 @@ export default {
 
 
     methods: {
-
+      tovideo(event){
+        this.$router.push({ name: "videohome", params: { genre: event, age:"parent" } });
+        localStorage.setItem("videoAgeView","parent");
+      }
    
     },
     components: {

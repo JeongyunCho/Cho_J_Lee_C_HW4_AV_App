@@ -82,12 +82,12 @@ export default {
                         console.error("authentication failed, please try again");
                         this.$emit("autherror", data);
                     } else {
-                       
-                        if(data.user_agedays>=6935){
-                        this.$emit("adultauthenticated", true);
-                        }
-                        this.$emit("authenticated", true, data);
+                    //    check agedays in to days and if it's number is more than 365*19 the user is authenticated
+                     
+                        localStorage.setItem("adultauthenticated", false);
+                        localStorage.setItem("authenticated", true);
                         localStorage.setItem("currentUserID", data.user_id);
+                        this.$emit("authenticated", true, data);
                         this.$router.replace({ name: "userlists" });
                     }
                 })

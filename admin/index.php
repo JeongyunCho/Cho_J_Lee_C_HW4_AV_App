@@ -7,9 +7,11 @@
 
         if ($type == "video") {
             $tbl = "tbl_movies";
-        } else {
-            $tbl = "tbl_audio";
-        }
+        } 
+    }
+    if (isset($_GET['age'])) {
+        $age = $_GET['age'];
+
     }
 
     if(isset($_GET['filter'])){
@@ -22,14 +24,16 @@
         $col3 = 'genre_name';
         $filter = $_GET['filter'];
 
-        $results = filterResults($tbl, $tbl2, $tbl3, $col, $col2, $col3, $filter);
-        
+        if($_GET['filter']=="null"){
+            $results = getAll($tbl,$age);
+        }else{
+            $results = filterResults($tbl, $tbl2, $tbl3, $col, $col2, $col3, $filter,$age);
+        }
         echo json_encode($results);
 
     } else {
-$tbl = "tbl_user";
-        $results = getAll($tbl);
-
+   
+        $results = getAll($tbl,$age);
         echo json_encode($results);
     }
 ?>
