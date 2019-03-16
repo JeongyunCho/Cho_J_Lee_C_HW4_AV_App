@@ -12,16 +12,14 @@ export default {
      
     <form action="login.html" class="login-form" method="post">
         <label for="fname" class="hide">Firstname:</label>
-        <input type="text" placeholder="fname"/>
+        <input v-model="input.fname" type="text" placeholder="fname"/>
         <label for="username" class="hide">Username</label>
-        <input type="text" placeholder="username"/>
+        <input v-model="input.username" type="text" placeholder="username"/>
         <label for="password" class="hide">Password</label>
-        <input type="password" placeholder="password"/>
+        <input v-model="input.password" type="password" placeholder="password"/>
         <label for="email" class="hide">Email</label>
-        <input type="text" placeholder="email"/>
-        <button type="submit">Edit User</button>
-       
-        
+        <input v-model="input.email" type="email" placeholder="email"/>
+        <button v-on:click.prevent="editUser()" type="submit">Edit User</button>
     </form>
     
     </div>
