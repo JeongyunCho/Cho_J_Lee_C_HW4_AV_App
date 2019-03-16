@@ -23,7 +23,8 @@ export default {
         <label for="birth" class="hide">Date of Birth</label>
         <input v-model="input.birth" name="birth" type="date" placeholder="date of birth" />
         <button v-if="userLoggedin" type="submit" @click.prevent="create_user('sub')">Create User</button>
-        <button v-else type="submit" @click.prevent="create_user(null)">Create User</button>    
+        <button v-else type="submit" @click.prevent="create_user(null)">Create User</button>
+        
     </form>
     
     </div>
@@ -101,5 +102,3 @@ export default {
         footercomponent: FooterComponent
       }
  }
-
-// Stylize createuser.html to vue.js

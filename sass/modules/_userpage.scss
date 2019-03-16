@@ -1,6 +1,10 @@
 body {
     height: 100vh;
 }
+#userlistCom{
+cursor: default;
+}
+
 .card-rounded {
     background-color: white;
     box-shadow: 5px 5px 20px $roku-purple;
